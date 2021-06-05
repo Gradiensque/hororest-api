@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const horoskop = require("./routers/horoskop");
-const chapter = require("./routers/chapter");
 const cors = require("cors");
 const helmet = require("helmet");
 
@@ -10,7 +9,6 @@ app.use(cors());
 app.use(helmet());
 app.use("/api", horoskop);
 app.use(express.static("./public"));
-app.use("/api/", chapter);
 app.use("/api", (req, res) => {
   res.send({
     status: true,
